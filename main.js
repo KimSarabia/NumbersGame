@@ -1,11 +1,15 @@
 'use strict';
 
 var sum = 0;
-
+  var turns = 10;
+var gameOn;
 $(document).ready(init);
 
 function init(){
-  $('.num').click(clickNum);
+  sum = 0;
+  turns = 10;
+  gameOn= true;
+  $('.num').click(clickNum); //
   $('body').ready(randomNum);
   $('#submit').click(submitAnswer);
   $('#roll').click(rollRefresh);
@@ -13,6 +17,7 @@ function init(){
 }
 
 function randomNum(){
+  if (gameOn === true) {
   var randNum = Math.floor(Math.random() * 9) + 1;
   console.log('randNum: ', randNum);
   var $stars = [];
@@ -20,20 +25,22 @@ function randomNum(){
     var $newCup = $('<div>').addClass('star');
     $stars.push($newCup);
   }
-  $('#randomNums').append($stars);
+  $('#randomNums').append($stars);}
 }
 
 function clickNum(){
+  if (gameOn === true){
   var $this = $(this);
   var num = $(this).text();
   var wasSelected = $this.hasClass('selected');
   $this.removeClass('selected');
   if(!wasSelected){
     $this.addClass('selected');
-  }
+  }}
 }
 
 function submitAnswer(){
+     if (gameOn === true) {
   var starLength = $('.star').length;
   $('.selected').each(function(index, element){
     sum = 0;
@@ -58,27 +65,33 @@ function submitAnswer(){
   } else {
     $('#messages').empty();
     $('#messages').text('Wrong, try again!');
-  }
+  }}
 }
 
 function rollRefresh(){
-  var turns = $('#rollChances').text();
+   if (gameOn === true) {
+    turns = turns - 1;
+    console.log('click');
+  $('#rollChances').text();
   $('#randomNums').empty();
   randomNum();
-  turns = turns - 1;
   $('#rollChances').text(turns);
-  if (turns <= 0) {
-    $('#roll').addClass('disabled');
-    $('#roll').off();
-  }
+  if (turns === 0) {
+    gameOn = false;
+
+  }}
 }
 
 function resetGame(){
   $('#randomNums').empty();
   randomNum();
+  turns = 10;
+
   $('.num').off();
   $('.num').click(clickNum);
   $('.num').removeClass('disabled selected');
   $('#messages').empty().removeClass('winner');
-  $('#rollChances').empty().text(50);
+  $('#rollChances').text(turns);
+ gameOn = true;
+
 }

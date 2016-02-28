@@ -14,21 +14,20 @@ h1 {
   text-shadow: 2px 2px 0 #333;
   text-transform: uppercase;
   width: 100%;
+  text-align: center;
 }
 
 body {
-
 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 font-weight: 300;
 background: #ffb347; /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #ffb347 , #ffcc33); /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #ffb347 , #ffcc33); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
-}
+}        
 
 #randomNums {
   max-width: 700px;
-  min-height: 20px;
+  min-height: 70px;
 }
 
 td {
@@ -92,6 +91,10 @@ button:active, button.active, .button:active, .button.active, input[type=submit]
   border: 25px solid transparent;
   border-top: 18.5px solid #FFC736;
   border-bottom: none;
+  display: inline-block;
+  height: 40px;
+  margin: 3px;
+  width: 40px;
 }
 .star:hover {
   border-top-color: transparent;
@@ -164,5 +167,6 @@ button:active, button.active, .button:active, .button.active, input[type=submit]
   padding: 10px;
   position: relative;
   width: 500px;
+/*  height: 500px;*/
   background: #FFFFFF;
 }
