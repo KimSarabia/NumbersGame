@@ -80,5 +80,5 @@ function resetGame(){
   $('.num').click(clickNum);
   $('.num').removeClass('disabled selected');
   $('#messages').empty().removeClass('winner');
-  $('#rollChances').empty().text(50);
+  $('#rollChances').empty().text(10);
 }
