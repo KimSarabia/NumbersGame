@@ -1,14 +1,14 @@
 'use strict';
 
 var sum = 0;
-  var turns = 10;
+var turns = 10;
 var gameOn;
 $(document).ready(init);
 
 function init(){
   sum = 0;
   turns = 10;
-  gameOn= true;
+  gameOn = true;
   $('.num').click(clickNum); //
   $('body').ready(randomNum);
   $('#submit').click(submitAnswer);
@@ -40,32 +40,32 @@ function clickNum(){
 }
 
 function submitAnswer(){
-     if (gameOn === true) {
-  var starLength = $('.star').length;
-  $('.selected').each(function(index, element){
-    sum = 0;
-    sum = sum + parseInt(element.innerHTML);
-  })
-  
-  if(starLength === sum) {
-    $('#messages').empty();
-    $('#messages').text('Awesome!');
+  if (gameOn === true) {
+    var starLength = $('.star').length;
     $('.selected').each(function(index, element){
-      element.classList.add('disabled');
-      element.classList.remove('selected');
+      sum = 0;
+      sum = sum + parseInt(element.innerHTML);
     })
-    $('.disabled').off();
-    $('#randomNums').empty();
-    randomNum();
-    var disabledNums = $('.disabled').length;
-    if(disabledNums === 9){
+    
+    if(starLength === sum) {
       $('#messages').empty();
-      $('#messages').text('Hey you got it!').addClass('winner');
-    }
-  } else {
-    $('#messages').empty();
-    $('#messages').text('Wrong, try again!');
-  }}
+      $('#messages').text('Awesome!');
+      $('.selected').each(function(index, element){
+        element.classList.add('disabled');
+        element.classList.remove('selected');
+      })
+      $('.disabled').off();
+      $('#randomNums').empty();
+      randomNum();
+      var disabledNums = $('.disabled').length;
+      if(disabledNums === 9){
+        $('#messages').empty();
+        $('#messages').text('Hey you got it!').addClass('winner');
+      }
+    } else {
+      $('#messages').empty();
+      $('#messages').text('Wrong, try again!');
+    }}
 }
 
 function rollRefresh(){
@@ -83,15 +83,15 @@ function rollRefresh(){
 }
 
 function resetGame(){
-  $('#randomNums').empty();
-  randomNum();
-  turns = 10;
+  $('#randomNums').empty(){
+    randomNum();
+    turns = 10;
 
   $('.num').off();
   $('.num').click(clickNum);
   $('.num').removeClass('disabled selected');
   $('#messages').empty().removeClass('winner');
   $('#rollChances').text(turns);
- gameOn = true;
-
+ gameOn = true;    
+    }
 }
