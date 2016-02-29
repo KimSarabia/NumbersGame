@@ -94,4 +94,5 @@ function resetGame(){
   $('#rollChances').text(turns);
  gameOn = true;    
     }
+
 }
